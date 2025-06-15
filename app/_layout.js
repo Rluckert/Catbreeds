@@ -23,12 +23,15 @@ export default function Layout() {
     <View style={{ flex: 1, backgroundColor: "black" }}>
       <Stack
         screenOptions={{
-          headerStyle: { backgroundColor: "black" },
+          headerTitle: "Catbreeds",
+          headerStyle: { backgroundColor: "white" },
           headerTintColor: "white",
+          headerTitleAlign: "center", 
           headerTitleStyle: {
-            color: "white",
-            fontFamily: "Poppins",
+            color: "black",
+            fontFamily: "Roboto", 
             fontSize: 18,
+            fontWeight: "bold",
           },
         }}
       />
