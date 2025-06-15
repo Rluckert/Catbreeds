@@ -1,9 +1,9 @@
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Stack, SplashScreen } from "expo-router";
-import { View } from "react-native";
+import { Provider } from "react-redux";
+import store from "../store";
 
-// Evita que el splash desaparezca automáticamente
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
@@ -20,21 +20,21 @@ export default function Layout() {
   if (!fontsLoaded) return null;
 
   return (
-    <View style={{ flex: 1, backgroundColor: "black" }}>
+    <Provider store={store}>
       <Stack
         screenOptions={{
           headerTitle: "Catbreeds",
           headerStyle: { backgroundColor: "white" },
-          headerTintColor: "white",
-          headerTitleAlign: "center", 
+          headerTintColor: "black",
+          headerTitleAlign: "center",
           headerTitleStyle: {
             color: "black",
-            fontFamily: "Roboto", 
+            fontFamily: "Roboto",
             fontSize: 18,
             fontWeight: "bold",
           },
         }}
       />
-    </View>
+    </Provider>
   );
 }
