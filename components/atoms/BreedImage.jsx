@@ -1,5 +1,5 @@
 import { View, Image, StyleSheet } from "react-native";
-import NoCatImage from "../../assets/cat_default.png"; // Ajusta la ruta según tu estructura
+import NoCatImage from "../../assets/cat_default.png";
 
 export default function BreedImage({ imageUrl, height = 350 }) {
   return (
