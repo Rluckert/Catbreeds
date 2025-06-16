@@ -8,7 +8,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
-    Roboto: require("../assets/fonts/Roboto-Regular.ttf"),
+    Montserrat: require("../assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-Bold": require("../assets/fonts/Montserrat-Bold.ttf"),
   });
 
   useEffect(() => {
