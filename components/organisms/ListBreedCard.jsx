@@ -1,9 +1,10 @@
 import { View, ActivityIndicator, FlatList } from "react-native";
 import { BreedCard } from "../molecules/BreedCard";
+import ScreenContainer  from "../../components/atoms/ScreenContainer";
 
 export default function ListBreedCard({ breeds }) {
   return (
-    <View>
+    <ScreenContainer>
       {breeds.length === 0 ? (
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -24,6 +25,6 @@ export default function ListBreedCard({ breeds }) {
         />
       )}
       
-    </View>
+    </ScreenContainer>
   );
 }
