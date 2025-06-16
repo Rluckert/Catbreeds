@@ -19,5 +19,5 @@ export const breedsSlice = createSlice({
   },
 });
 
-export const { setBreeds, setFilteredBreeds, setSelectedBreed } = breedsSlice.actions;
+export const { setBreeds, setFilteredBreeds } = breedsSlice.actions;
 export default breedsSlice.reducer;
