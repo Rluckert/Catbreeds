@@ -1,9 +1,10 @@
 import { View, ActivityIndicator, FlatList } from "react-native";
-import { AnimatedBreedCard} from "../molecules/BreedCard";
+import { BreedCard } from "../molecules/BreedCard";
+import ScreenContainer  from "../../components/atoms/ScreenContainer";
 
 export default function ListBreedCard({ breeds }) {
   return (
-    <View>
+    <ScreenContainer>
       {breeds.length === 0 ? (
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
@@ -14,12 +15,16 @@ export default function ListBreedCard({ breeds }) {
         <FlatList
           data={breeds}
           keyExtractor={(item) => item.id}
-          renderItem={({ item, index }) => (
-            <AnimatedBreedCard breed={item} index={index} />
+          renderItem={({ item }) => (
+            <BreedCard breed={item} />
           )}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
+          windowSize={5}
+          removeClippedSubviews={true}
         />
       )}
       
-    </View>
+    </ScreenContainer>
   );
 }

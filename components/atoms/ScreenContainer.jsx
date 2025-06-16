@@ -7,7 +7,7 @@ export default function ScreenContainer({ children }) {
   return (
     <View
       className="flex-1 bg-white px-2"
-      style={{ paddingBottom: insets.bottom + 16 }}
+      style={{ paddingBottom: insets.bottom }}
     >
       {children}
     </View>

@@ -1,5 +1,4 @@
-import { View, Image, StyleSheet, Animated, Pressable } from "react-native";
-import { useEffect, useRef } from "react";
+import { View, Image, StyleSheet, Pressable } from "react-native";
 import NoCatImage from "../../assets/cat_default.png";
 import { useRouter } from "expo-router";
 import TextAtom from "../atoms/Text";
@@ -7,16 +6,18 @@ import TextAtom from "../atoms/Text";
 export function BreedCard({ breed }) {
   const router = useRouter();
   return (
-    <View className="bg-white p-4 rounded-lg shadow w-full items-center border border-black mb-4">
+    <Pressable
+      onPress={() =>
+        router.push({
+          pathname: "/breed/[id]",
+          params: { id: breed.id, name: breed.name },
+        })
+      }
+      className="bg-white p-4 rounded-lg shadow w-full border border-black mb-4 active:opacity-70"
+    >
       <View className="flex-row justify-between w-full mb-2">
-        <TextAtom bold>{breed.name} </TextAtom>
-        <Pressable
-          onPress={() =>
-            router.push({ pathname: "/breed/[id]", params: { id: breed.id, name: breed.name } })
-          }
-        >
-          <TextAtom bold>More... </TextAtom>
-        </Pressable>
+        <TextAtom bold>{breed.name}</TextAtom>
+        <TextAtom bold>More...</TextAtom>
       </View>
 
       <View style={styles.imageContainer}>
@@ -31,25 +32,7 @@ export function BreedCard({ breed }) {
         <TextAtom bold>{breed.origin}</TextAtom>
         <TextAtom bold>{breed.intelligence}</TextAtom>
       </View>
-    </View>
-  );
-}
-
-export function AnimatedBreedCard({ breed, index }) {
-  const opacity = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 100,
-      delay: index * 150,
-      useNativeDriver: true,
-    }).start();
-  }, [opacity, index]);
-
-  return (
-    <Animated.View style={{ opacity }}>
-      <BreedCard breed={breed} />
-    </Animated.View>
+    </Pressable>
   );
 }
 
