@@ -5,11 +5,18 @@ export default function TextAtom({
   bold = false,
   center = false,
   className = "",
+  style,
   ...props
 }) {
-  const classes = `${bold ? "font-bold" : "font-normal"} ${center ? "text-center" : ""} text-black ${className}`;
+  const classes = `${center ? "text-center" : ""} ${className}`;
+  const fontFamily = bold ? "Montserrat-Bold" : "Montserrat";
+
   return (
-    <Text className={classes} {...props}>
+    <Text
+      className={classes}
+      style={[{ fontFamily }, style]}
+      {...props}
+    >
       {children}
     </Text>
   );
