@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ListBreedCard from "../organisms/ListBreedCard";
 import { getBreeds } from "../../services/catbreed";
 import { View } from "react-native";
@@ -20,13 +20,11 @@ export default function LandingPage() {
         console.error("Error fetching breeds:", error);
       }
     };
-
     fetchBreeds();
   }, [dispatch]);
 
   const handleSearch = (text) => {
     const query = text.trim().toLowerCase();
-    console.log(text)
     if (query === "") {
       dispatch(setFilteredBreeds(allBreeds));
     } else {
@@ -39,10 +37,7 @@ export default function LandingPage() {
 
   return (
     <View className="flex-1 bg-white pt-4 px-2">
-      <SearchBar
-        placeholder="Buscar raza..."
-        onChangeText={handleSearch}
-      />
+      <SearchBar placeholder="Search breed..." onChangeText={handleSearch} />
       <ListBreedCard breeds={filteredBreeds} />
     </View>
   );
