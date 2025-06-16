@@ -1,7 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
 import { useLayoutEffect } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import BreedPage from "../../components/pages/BreedPage";
 
 export default function DetailPage() {
   const { id, name } = useLocalSearchParams(); 
@@ -14,8 +15,8 @@ export default function DetailPage() {
   }, [navigation, name]);
 
   return (
-    <View className="flex-1 bg-white pt-4 px-2">
-      <Text className="text-2xl font-bold mb-4">Detalle de Raza: {name}</Text>
+    <View className="w-full h-full bg-white px-2">
+      <BreedPage id={id} />
     </View>
   );
 }
