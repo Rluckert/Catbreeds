@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import LandingPage from "../components/pages/LandingPage";
 
 export default function Index() {
