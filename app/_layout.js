@@ -30,7 +30,7 @@ export default function Layout() {
           headerTitleAlign: "center",
           headerTitleStyle: {
             color: "black",
-            fontFamily: "Roboto",
+            fontFamily: "Montserrat",
             fontSize: 18,
             fontWeight: "bold",
           },
